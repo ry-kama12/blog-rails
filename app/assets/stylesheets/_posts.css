@@ -1,0 +1,67 @@
+.body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  width: 100%;
+  height: 200px;
+  color:black;
+  background-color: gray;
+  display: flex;
+  background-image : url(1920x1080xf07fcf146a4768ebc6964a.jpg)
+}
+  .headertitle{
+    width: 70%;
+    text-align: center;
+    line-height: 200px;
+  }
+  .side-sign{
+    width: 30%;
+    line-height: 200px;
+  }
+  .signbtn1{
+    float: left;
+  }
+  .signbtn2{
+    float: right;
+  }
+
+
+.menu{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  background-color:lightblue;
+  text-align: center;
+}
+  .home{
+    width: 33%;
+    font-size: 30px;
+
+  }
+  .kizi{
+    width: 33%;
+    font-size: 30px;
+
+  }
+  .un{
+    width: 33%;
+    font-size: 30px;
+  }
+
+.ranking{
+  width: 30%;
+  height: 500px;
+  background-color: beige;
+  float: left;
+}
+
+.new{
+  width: 70%;
+  height: 500px;
+  background-color:lightgray;
+  float: left;
+}

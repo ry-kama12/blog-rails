@@ -13,7 +13,9 @@
       <div class= "side-sign">
         <h3 class= "signbtn1" >マイページ</h3>
         <h3 class= "signbtn2"> ログイン</h3>
-
+        <h3 class= "logoutbtn">
+          <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
+        </h3>
       </div>
     </header>
 

@@ -46,10 +46,16 @@
 
     <div class="new">
       <p>最新記事表示</p>
+      <div class= "allpost">
+        <% @post.each do |post| %>
+          <p><%= post.title %></p>
+        <% end %>
+      </div>
     </div>
 
   </body>
 
   <footer>
    <p>お問い合わせわこちら・・・・test@test.com</p>
+  </footer>
 </html>

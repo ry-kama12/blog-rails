@@ -1,0 +1,19 @@
+<header>
+共通ヘッダーを利用
+</header>
+
+<body>
+  <div class= "content_post">
+    <%= form_for @post do |f|%>
+
+      <%= f.text_field :title %>
+      <input type="file">
+      <%= f.text_area :content %>
+      <input type="submit" value="記事を投稿する">
+    <% end %>
+  </div>
+
+<footer>
+共通フッターを利用
+</footer>
+</body>

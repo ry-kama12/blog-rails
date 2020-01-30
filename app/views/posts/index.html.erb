@@ -11,7 +11,9 @@
         <h1 class="site-title">KAMABlog</h1>
        </div>
       <div class= "side-sign">
-        <h3 class= "signbtn1" >マイページ </h3>
+        <h3 class= "signbtn1" >
+        <%= link_to "マイページ", "/users/show"%>
+        </h3>
         <% if user_signed_in? %> 
           <h3 class= "logoutbtn">
            <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
@@ -30,7 +32,7 @@
       </section>
 
       <section class="kizi">
-        <a href = "#">記事</a>
+        <a href = "/posts/show">記事</a>
       </section>
 
       <section class="un">
@@ -47,4 +49,7 @@
     </div>
 
   </body>
+
+  <footer>
+   <p>お問い合わせわこちら・・・・test@test.com</p>
 </html>

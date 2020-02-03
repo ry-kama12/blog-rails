@@ -1,3 +1,26 @@
 <%# ヘッダーを全画面共通のものにする %>
+<%# <記事詳細ページ用> %>
 
 
+<div class ="post-title">
+ <%= @post.title%>
+</div>
+<div class= "post-content">
+<%= @post.content%>
+</div>
+
+<div class= "commentform">
+  <%= form_with(model: [@post,@comment], method: get, url:{controller:'posts',action: 'show'}, local: true) do |comment| %>
+   <%= comment.text_area :message %>
+   <%= comment.submit "SENT"%>
+  <% end %>
+</div>
+
+<h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |c| %>
+          <p>
+            <%= c.text %>
+          </p>
+        <% end %>
+      <% end %>

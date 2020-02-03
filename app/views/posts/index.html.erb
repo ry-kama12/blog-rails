@@ -7,22 +7,30 @@
 
   <body>
       <header class="header"> 背景画像設定
-      <div class= "headertitle">
-        <h1 class="site-title">KAMABlog</h1>
-       </div>
-      <div class= "side-sign">
-        <h3 class= "signbtn1" >
-        <%= link_to "マイページ", "/users/show"%>
-        </h3>
-        <% if user_signed_in? %> 
-          <h3 class= "logoutbtn">
-           <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
+        <div class= "headertitle">
+          <h1 class="site-title">KAMABlog</h1>
+        </div>
+        <div class= "side-sign">
+          <% if user_signed_in? %>
+            <h3 class= "signbtn1" >
+            <%= link_to "マイページ", "/users/show"%>
           </h3>
-         <% else %>
-         <h3 class= "signbtn2"> 
-          <%= link_to 'ログイン',"/users/sign_in"%>
-         </h3>
-        <% end %>       
+          <% else %>
+            <h3 class= "signupbtn">
+            <%= link_to '新規会員登録',"/users/sign_up"%>
+            </h3>
+            <% end %>
+          </div>
+          <div class= "loginbtn">
+            <% if user_signed_in? %> 
+            <h3 class= "logoutbtn">
+              <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
+            </h3>
+          <% else %>
+          <h3 class= "signbtn2"> 
+            <%= link_to 'ログイン',"/users/sign_in"%>
+          </h3>
+          <% end %>       
       </div>
     </header>
 
@@ -48,7 +56,7 @@
       <p>最新記事表示</p>
       <div class= "allpost">
         <% @post.each do |post| %>
-          <p><%= post.title %></p>
+          <%=link_to post.title, "/posts/#{post.id}" %>
         <% end %>
       </div>
     </div>

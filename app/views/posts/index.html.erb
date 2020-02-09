@@ -5,65 +5,100 @@
       <link rel="stylesheet" href="application.css"> 
   </head>
 
-  <body>
-      <header class="header"> 背景画像設定
-        <div class= "headertitle">
-          <h1 class="site-title">KAMABlog</h1>
+  <body class="bg-light">
+      <header class="header"> 
+        <div class="container ">
+          <div class="row ">
+            <div class= "col-md-10 col-xs-12 text-center ">
+              <h1 class="site-title">KAMABlog</h1>
+            </div>
+            <div class= "col-md-1 col-xs-2 text-nowrap">
+              <% if user_signed_in? %>
+                <h3 class= "signbtn1" >
+                <%= link_to "マイページ", "/users/show", class: "btn btn-info"%>
+                </h3>
+              <% else %>
+                <h3 class= "signupbtn">
+                <a href="/users/sign_up" class="btn btn-danger">新規会員登録</a>
+                </h3>
+              <% end %>
+            </div>
+            <div class= "col-md-1 col-xs-2 text-nowrap">
+              <% if user_signed_in? %> 
+              <h3 class= "logoutbtn">
+                <%= link_to 'ログアウト', "/users/sign_out", method: :delete, class: "btn btn-danger" %>
+              </h3>
+            <% else %>
+            <h3 class= "signbtn2"> 
+              <%= link_to 'ログイン',"/users/sign_in", class: "btn btn-info"%>
+            </h3>
+            <% end %>  
+            </div> 
+            <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>    
+          
         </div>
-        <div class= "side-sign">
-          <% if user_signed_in? %>
-            <h3 class= "signbtn1" >
-            <%= link_to "マイページ", "/users/show"%>
-          </h3>
-          <% else %>
-            <h3 class= "signupbtn">
-            <%= link_to '新規会員登録',"/users/sign_up"%>
-            </h3>
-            <% end %>
-          </div>
-          <div class= "loginbtn">
-            <% if user_signed_in? %> 
-            <h3 class= "logoutbtn">
-              <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
-            </h3>
-          <% else %>
-          <h3 class= "signbtn2"> 
-            <%= link_to 'ログイン',"/users/sign_in"%>
-          </h3>
-          <% end %>       
       </div>
     </header>
+ <div class="menubar"> 
+  <div class="container ">
+    <div class="row">
+      <div class="col-4">
+        <section class="home">
+          <a href = "#">ホーム</a>
+        </div>
 
-    <div class="menu">
-      <section class="home">
-        <a href = "#">ホーム</a>
-      </section>
+        <div class="col-4">
+          <a href = "/posts/show">記事</a>
+        </div>
 
-      <section class="kizi">
-        <a href = "/posts/show">記事</a>
-      </section>
+        <div class="col-4">
+          <a href = "#">未定</a>
+        </div>
 
-      <section class="un">
-        <a href = "#">未定</a>
-      </section>
+      </div>
     </div>
-
+ </div> 
     <div class="ranking">
       <p>アクセスランキング</p>
     </div>
 
-    <div class="new">
+    <section class="category-page area-padding">
       <p>最新記事表示</p>
-      <div class= "allpost">
-        <% @post.each do |post| %>
-          <%=link_to post.title, "/posts/#{post.id}" %>
-        <% end %>
-      </div>
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="single-category">
+              <div class="thumb">
+                <% @post.each do |post| %>
+                  <%# <% if post.name? %> 
+                   <%# <%= image_tag @post.name, size: "213x260" %> 
+                   <%# <% else %> 
+                   <%= image_tag 'IMG_0370.jpg',size: "213x260"%>
+                  <%# <% end %>  
+                </div>
+                <div class="short_details">
+                  <div class="meta-top d-flex">
+                    <a href="#">shoes </a>/
+                      <a href="#"> March 15, 2019</a>
+                  </div>
+                      <%=link_to post.title, "/posts/#{post.id}" %>
+                    </a>
+                    <div class="meta-bottom d-flex">
+                      <a href="#"><i class="ti-comment"></i>05 comment</a>
+                      <a href="#"><i class="ti-heart"></i> 0 like</a>
+                    </div>
+                  </div>
+                  <% end %>
+              </div> 
+           </div>
     </div>
-
+<footer>
+  <p>お問い合わせわこちら・・・・test@test.com</p>
+</footer>
   </body>
 
-  <footer>
-   <p>お問い合わせわこちら・・・・test@test.com</p>
-  </footer>
+
 </html>

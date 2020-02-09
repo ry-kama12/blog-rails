@@ -1,7 +1,3 @@
-<%# ヘッダーを全画面共通のものにする %>
-<%# <記事詳細ページ用> %>
-
-
 <div class ="post-title">
  <%= @post.title%>
 </div>
@@ -10,7 +6,7 @@
 </div>
 
 <div class= "commentform">
-  <%= form_for ([@post,@post.comments.build]) do |c| %>
+  <%= form_for @comment, url: "/posts/#{@post.id}/comments" do |c| %>
     <%= c.text_area :message %>
   <button type="submit" class="btn btn-primary">コメントする</button>
   <% end %>

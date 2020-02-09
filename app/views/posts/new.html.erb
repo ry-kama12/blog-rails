@@ -5,15 +5,26 @@
 <body>
   <div class= "content_post">
     <%= form_for @post do |f|%>
-
-      <%= f.text_field :title %>
-      <input type="file">
-      <%= f.text_area :content %>
-      <input type="submit" value="記事を投稿する">
+      <div class="form-group">
+        <%= f.label "nickname","ニックネーム"%>
+        <input type="text" class="form-control" placeholder="ユーザーID勝手に入る予定">
+      </div>
+      <div class="form-group">
+        <%= f.label "title","タイトル" %>
+        <%= f.text_field :title, class:"form-control"%>
+      <div class="form-group">
+        <%= f.label "content","内容" %>
+        <%= f.text_area :content, class:"form-control"%>
+      </div>
+        <%= f.fields_for :images do |i| %>
+          <%= i.file_field :name, class:"form-control" %><br>
+        <% end %>
+       <button type="submit" class="btn btn-primary">記事を投稿する</button>
     <% end %>
   </div>
 
 <footer>
 共通フッターを利用
 </footer>
+
 </body>

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @post = Post.limit(4)
+    # @post = Post.includes(:images).order('created_at DESC')
   end
 
   def new
@@ -19,14 +20,14 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    # @comments = @post.comments.includes(:user)
     @comment = Comment.new
   end
 
   private
 
   def post_params
-    @post = params.require(:post).permit(:title, :content)
+    @post = params.require(:post).permit(:title, :content, images_attributes: [:name])
   end
 
 end

@@ -1,32 +1,40 @@
 <%= render :partial => 'layouts/header'%>
+<%= render :partial => 'layouts/menubar'%>
 
 <%# <記事詳細ページ用> %>
 
+<div class="border col-5 text-center mx-auto m-5">
+  <div class ="post-title m-3 border">
+   <%= @post.title%>
+  </div>
+  <div class= "post-content border">
+    <%= @post.content%>
+  </div>
 
-<div class ="post-title">
- <%= @post.title%>
-</div>
-<div class= "post-content">
-<%= @post.content%>
+  <div class ="image-form">
+    <%# <%= image_tag @post.images.image.to_s %> %>
+  </div>
 </div>
 
-<div class ="image-form">
-  <%# <% image_tag @post.images.url %> %>
+<div class="edit text-center ">
+  <%  if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to"編集する", "/posts/#{@post.id}/edit", class: "btn btn-primary " %>
+  <% end %>
 </div>
-<%  if user_signed_in? && current_user.id == @post.user_id %>
-<%= link_to"編集する", "/posts/#{@post.id}/edit", class: "btn btn-primary" %>
-<% end %>
 
-<div class= "commentform">
+<div class= "commentform text-center m-5">
+  <h5>コメント入力フォーム</h5>
   <%= form_for ([@post,@post.comments.build]) do |c| %>
-    <%= c.text_area :message %>
+    <%= c.text_area :message, class:"form-control"%><br>
   <button type="submit" class="btn btn-primary">コメントする</button>
   <% end %>
 </div> 
 
-<h4>＜コメント一覧＞</h4>
-        <% @post.comments.each do |c| %> 
-           <p> 
-          <%= c.message %> 
-          </p>
-      <% end %> 
+<div class="text-center">
+  <h4>＜コメント一覧＞</h4>
+    <% @post.comments.each do |c| %> 
+  <p> 
+    <%= c.message %> 
+  </p>
+    <% end %> 
+</div>

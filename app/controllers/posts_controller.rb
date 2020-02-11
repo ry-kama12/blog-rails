@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.limit(4)
+    @posts = Post.last(4)
   end
 
   def new
@@ -20,8 +21,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # render plain: params.inspect
-    # @posts = Post.find(image_params)
     @post.images.build
+    # @post.find(update_params)
     # @comments = @post.comments.includes(:user)
     @comment = Comment.new
   end

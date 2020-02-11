@@ -6,60 +6,42 @@
   </head>
 
   <body class="bg-light">
-<%= render :partial => 'layouts/header'%>
- <div class="menubar"> 
-  <div class="container ">
-    <div class="row">
-      <div class="col-4">
-        <section class="home">
-          <a href = "#">ホーム</a>
-        </div>
-
-        <div class="col-4">
-          <a href = "/users/show">記事</a>
-        </div>
-
-        <div class="col-4">
-          <a href = "#">未定</a>
-        </div>
-
-      </div>
-    </div>
- </div> 
-    <div class="ranking">
-      <p>アクセスランキング</p>
-    </div>
-
-    <section class="category-page area-padding">
-      <p>最新記事表示</p>
-      <div class="container ">
-        <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class="single-category">
-              <div class="thumb">
-                <% @post.each do |post| %>
-                  <%# <% if post.name? %> 
-                   <%# <%= image_tag @post.name, size: "213x260" %> 
-                   <%# <% else %> 
-                   <%= image_tag 'IMG_0370.jpg',size: "213x260"%>
-                  <%# <% end %>  
-                </div>
-                <div class="short_details">
-                  <div class="meta-top d-flex">
-                    <a href="#">shoes </a>/
-                      <a href="#"> March 15, 2019</a>
-                  </div>
-                      <%=link_to post.title, "/posts/#{post.id}" %>
-                    </a>
-                    <div class="meta-bottom d-flex">
-                      <a href="#"><i class="ti-comment"></i>05 comment</a>
+  <%= render :partial => 'layouts/header'%>
+  <%= render :partial => 'layouts/menubar'%>
+      <div class="ranking text-center">
+        <h5>アクセスランキング</h5>
+        <div class="container ">
+          <div class="row">
+              <div class="single-category d-flex ">
+                  <% @post.each do |post| %>
+                    <div class= "one-post m-4 ">
+                      <%= image_tag 'IMG_0370.jpg',size: "213x260", class:""%><br>
+                      <%=link_to post.title, "/posts/#{post.id}" %><br>
+                      <a href="#"><i class="ti-comment"></i>05 comment</a><br>
                       <a href="#"><i class="ti-heart"></i> 0 like</a>
                     </div>
-                  </div>
                   <% end %>
-              </div> 
-           </div>
-    </div>
+                </div>
+            </div>
+         </div>
+
+      <div class="category-page area-padding text-center">
+        <h5>最新記事表示</h5>
+        <div class="container ">
+          <div class="row">
+              <div class="single-category d-flex ">
+                  <% @posts.each do |post| %>
+                    <div class= "one-post m-4 ">
+                      <%= image_tag 'IMG_0370.jpg',size: "213x260", class:""%><br>
+                      <%=link_to post.title, "/posts/#{post.id}" %><br>
+                      <a href="#"><i class="ti-comment"></i>05 comment</a><br>
+                      <a href="#"><i class="ti-heart"></i> 0 like</a>
+                    </div>
+                  <% end %>
+               </div>
+          </div> 
+         </div>
+       </div>
 <footer>
   <p>お問い合わせわこちら・・・・test@test.com</p>
 </footer>

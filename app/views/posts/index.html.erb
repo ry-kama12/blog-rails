@@ -6,42 +6,7 @@
   </head>
 
   <body class="bg-light">
-      <header class="header"> 
-        <div class="container ">
-          <div class="row ">
-            <div class= "col-md-10 col-xs-12 text-center ">
-              <h1 class="site-title">KAMABlog</h1>
-            </div>
-            <div class= "col-md-1 col-xs-2 text-nowrap">
-              <% if user_signed_in? %>
-                <h3 class= "signbtn1" >
-                <%= link_to "マイページ", "/users/show", class: "btn btn-info"%>
-                </h3>
-              <% else %>
-                <h3 class= "signupbtn">
-                <a href="/users/sign_up" class="btn btn-danger">新規会員登録</a>
-                </h3>
-              <% end %>
-            </div>
-            <div class= "col-md-1 col-xs-2 text-nowrap">
-              <% if user_signed_in? %> 
-              <h3 class= "logoutbtn">
-                <%= link_to 'ログアウト', "/users/sign_out", method: :delete, class: "btn btn-danger" %>
-              </h3>
-            <% else %>
-            <h3 class= "signbtn2"> 
-              <%= link_to 'ログイン',"/users/sign_in", class: "btn btn-info"%>
-            </h3>
-            <% end %>  
-            </div> 
-            <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>    
-          
-        </div>
-      </div>
-    </header>
+<%= render :partial => 'layouts/header'%>
  <div class="menubar"> 
   <div class="container ">
     <div class="row">
@@ -51,7 +16,7 @@
         </div>
 
         <div class="col-4">
-          <a href = "/posts/show">記事</a>
+          <a href = "/users/show">記事</a>
         </div>
 
         <div class="col-4">

@@ -18,8 +18,10 @@
       </div>
         <%= f.fields_for :images do |i| %>
           <%= i.file_field :image, class:"form-control" %><br>
+        
         <% end %>
-       <button type="submit" class="btn btn-primary">記事を投稿する</button>
+       <button type="submit" class="btn btn-primary">記事を修正する</button>
+       <%= link_to '削除', "/posts/#{@post.id}", method: :delete, class:"btn btn-primary" %>
     <% end %>
   </div>
 

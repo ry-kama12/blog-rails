@@ -4,19 +4,19 @@
 ブログアプリ 
 
 # 開発環境
-##使用言語
+## 使用言語
 ・ruby '2.5.1'
 ・rails '~> 5.2.4', '>= 5.2.4.1'
 ## 使用技術
 ### デザイン
 ・bootstrap　'4.4.1'
 ### 画像投稿機能
-・'carrierwave'
-・'mini_magick'
+・carrierwave
+・mini_magick
 ### ログイン機能
-・'devise'
+・devise
 ### DB
-・'mysql2'
+・mysql2
 
 # 内容
 今まで勉強してきたことを別のアプリとして形にするため、４つの基本機能を実装したブログアプリを作りました。
@@ -42,6 +42,7 @@
 - has_many :liked_posts, through: :likes, source: :post
 
 ## Postsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
 |content|text|null: false|
@@ -54,6 +55,7 @@
 - has_many :liked_users, through: :likes, source: :user
 
 ## Imagesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |image|string|
 ### Association
@@ -61,6 +63,7 @@
 - mount_uploader :image, ImageUploader
 
 ## Likesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |user_id|reference|
 |post_id|reference|
@@ -69,6 +72,7 @@
 - belongs_to :post
 
 ## Commentsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |message|text|
 
